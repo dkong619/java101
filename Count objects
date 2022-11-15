@@ -1,0 +1,19 @@
+public class count {
+    static int no_of_objects = 0;
+
+    count(int a, int b) {
+        int x = a + b;
+        System.out.println("Sum: " + x);
+        no_of_objects++;
+    }
+
+    public static void main(String[] args) {
+        count c1 = new count(2, 3);
+        count c2 = new count(3, 6);
+        count c3 = new count(2, 4);
+        count c4 = new count(2, 5);
+        count c5 = new count(1, 12);
+        System.out.println("total no of objects created: " + count.no_of_objects);
+    }
+}
+
