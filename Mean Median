@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class MeanAndMedian {
+    void mean(int arr[]) {
+        int n1 = arr.length;
+        int sum = 0;
+        double mean = 0;
+        for (int i = 0; i < n1; i++) {
+            sum += arr[i];
+        }
+        mean = sum / n1;
+        System.out.println("mean: " + mean);
+    }
+
+    void median(int arr[]) {
+        double median = 0;
+        int n2 = arr.length;
+        Arrays.sort(arr);
+        if (n2 % 2 == 0) {
+            median = arr[n2 / 2];
+        } else {
+            median = (arr[(n2 - 1) / 2] + arr[n2 / 2]) / 2.0;
+        }
+        System.out.println("median: " + median);
+
+    }
+    public static void main(String[] args) {
+        int arr[] = new int[5];
+        System.out.println("enter the elements of the array: ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Integer.parseInt(args[i]);
+        }
+
+        System.out.println("array: " + Arrays.toString(arr));
+        MeanAndMedian obj = new MeanAndMedian();
+        obj.mean(arr);
+        obj.median(arr);
+    }
+
+}
