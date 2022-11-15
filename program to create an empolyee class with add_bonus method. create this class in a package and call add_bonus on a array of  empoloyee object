@@ -1,0 +1,64 @@
+package mypackage;
+
+public class bonus{
+    public  void compsalary1(int sal){
+        System.out.println("after the bonus the salary is ");
+        int s=sal+5000;
+        System.out.println(s);
+    }
+    public void bon(String[] name, int[] sal) {
+        System.out.println("the salary of the emplyee after increment of bonus is  ");
+        int[] upsal=new int[sal.length];
+        for(int i=0;i<upsal.length;i++){
+            upsal[i]=sal[i]+2000;
+        }
+        for(int i=0;i<sal.length;i++){
+            System.out.println(name[i]+" = "+upsal[i]);
+        }
+    }
+    public void selection1(int[] a){
+        int n=a.length;int smaller=0;
+        for (int i=0;i<n;i++){
+            int ind=i;
+            for(int j=i+1;j<n;j++){
+                if(a[j]<a[ind]){
+                    ind=j;
+                }
+            }
+            smaller=a[ind];
+            a[ind]=a[i];
+            a[i]=smaller;
+        }
+    }
+}
+
+
+
+/*--------------------------------------------outside the package SECOND FILE-----------------------------*/
+import java.util.Scanner;
+import mypackage.*;
+
+class salary {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("the employee name   ");
+        String name=sc.next();
+        System.out.println("the employee's salary  ");
+        int sal=sc.nextInt();
+        salary obj =new salary();
+        obj.compsalary(name,sal);
+        sc.close();
+    }
+    private void compsalary(String name,int sal) {
+        bonus ss=new bonus();
+        char chr;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("do u want to give bonus? yes ; y or no: n    ");
+        chr=sc.next().charAt(0);
+        while(chr=='y'||chr=='Y'){
+            ss.compsalary1(sal);
+            break;
+        }
+        sc.close();
+    }
+}
