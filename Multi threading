@@ -1,0 +1,70 @@
+import java.util.*;
+
+class A extends Thread
+{
+    public void run()
+    {
+        System.out.println("\nGenerating Five random numbers...");
+        Random m=new Random();
+        int num;
+        for(int i=0;i<5;i++)
+        {
+            num=m.nextInt(10);
+            System.out.println(num);
+            try
+            {if (num%2==0){
+                B t2 = new B(num);
+                t2.start();
+            }
+            else{
+                C t3 = new C(num);
+                t3.start();
+            } 
+                Thread.sleep(1000); 
+            }
+            catch(InterruptedException e)
+            {
+            }
+        }
+    }
+}
+
+class B extends Thread
+{
+    int n;
+    B(int num)
+    {
+        n=num;
+    }
+    public void run()
+    {
+        System.out.println("Square of "+n+" is :"+(n*n));
+    }
+}
+
+class C extends Thread
+{
+    int n;
+    C(int num)
+    {
+        n=num;
+    }
+    public void run()
+    {
+        System.out.println("Cube of "+n+" is :"+(n*n*n));
+    }
+}
+class Prgrm3BMultiThread {
+
+    public static void main(String[] args) {
+        A t1 = new A();
+        t1.start();
+        try{
+            t1.join(); 
+        }
+        catch(InterruptedException e)
+        {   
+        }
+    }
+
+} 
