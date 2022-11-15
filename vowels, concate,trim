@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+class strings {
+
+    void vowels(String sentence) {
+        int vowels = 0;
+        for (int i = 0; i < sentence.length(); i++) {
+            char ch = sentence.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowels++;
+            }
+        }
+        System.out.println("no of vowels: " + vowels);
+    }
+
+    void concate(String s1, String s2) {
+        System.out.println("after concatenating: " + s1.concat(s2));
+    }
+
+    void trim(String s1) {
+        System.out.println("after trimming: " + s1.trim());
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        strings str = new strings();
+        
+        System.out.println("enter a sentence to count the no of vowels: ");
+        String s1 = sc.nextLine();
+        str.vowels(s1);
+        System.out.println("enter another string to concatenate and trim whitespaces: ");
+        String s2 = sc.nextLine();
+        str.concate(s1, s2);
+        str.trim(s1); 
+        sc.close();
+
+    }
+}
