@@ -1,0 +1,54 @@
+package mypackage;
+
+import java.util.Arrays;
+
+public class userdefined{
+    public void sort(int arr[],int n){
+        n=arr.length;
+        for(int i=0;i<n-1;i++){
+            int min=i;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[min]){
+                    min=j;
+                }
+            }
+            int temp =arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
+        }
+    }
+
+    public void print(int arr[]){
+        for(int i=0;i<arr.length;i++){
+
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+/*-------------------------------------------outside user-defined package----------------------------------------------*/
+import java.util.Scanner;
+
+import mypackage.*;
+
+public class impckg extends userdefined {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        userdefined obj = new userdefined();
+        System.out.println("enter the size of the array: ");
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+
+        System.out.println("enter array elements: ");
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("before sorting: ");
+        obj.print(arr);
+        System.out.println("after sorting: ");
+        obj.sort(arr,n);
+        obj.print(arr);
+        sc.close();
+    }
+}
+
