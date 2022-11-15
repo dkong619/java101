@@ -1,0 +1,57 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class linsearch {
+    public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+                System.out.println("enter the size of array");
+                int x=sc.nextInt();
+    
+                int[] a=new int[x];
+                System.out.println("enter the element of the array");
+                for(int i=0;i<x;i++){
+                    a[i]=sc.nextInt();
+                }
+    
+                System.out.println("the unsorted array: ");
+                System.out.println(Arrays.toString(a));
+    
+                Arrays.sort(a);
+    
+                System.out.println("the sorted array: ");
+                System.out.println(Arrays.toString(a));
+
+                System.out.println("enter the search element: ");
+                int n=sc.nextInt();
+    
+                boolean flag=true;
+                linearSearch(a, n,flag);
+                sc.close();
+    }
+        
+        static void linearSearch(int[] a, int key){    
+            for(int i=0;i<a.length;i++){    
+                if(a[i] == key){    
+                    System.out.println(i);
+                }
+            } 
+            System.out.println(" ");       
+        }
+        static void linearSearch(int[] a, int key,boolean flag){
+            System.out.println("After method overloading, element is found at index: ");
+            while(flag==true){
+                for(int i=0;i<a.length;i++){    
+                    if(a[i] == key){    
+                        int pos[]=new int[a.length];
+                        for(int j=0;j<1;j++){
+                            pos[j]=i;   
+                            System.out.print(pos[j]+" "); 
+                            flag=false; 
+                        }      
+                    }
+                }
+                 
+            }         
+        }
+    
+}
