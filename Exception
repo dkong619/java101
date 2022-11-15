@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.Scanner;  
+
+class exceptions{
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("enter two numbers: ");
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+
+        try {
+            System.out.println(a / b);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Divided by zero operation cannot possible");
+        }
+        FileReader fileReader;  
+         try {  
+                fileReader = new FileReader("Test.txt");   
+                BufferedReader bufferReader = new BufferedReader(fileReader); 
+                String fileData = null;     
+                try {  
+                    while ((fileData = bufferReader.readLine()) != null){  
+                        System.out.println(fileData);  
+                    }  
+                } catch (IOException e) {   
+                    e.printStackTrace();  
+                }  
+         } catch (FileNotFoundException e1) {  
+            e1.printStackTrace();  
+        }    
+        
+    }
+}
