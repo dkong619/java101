@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import mypackage.*;
+
+class salary2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of employee's  ");
+        int size=sc.nextInt();
+        System.out.println("enter the employee's name   ");
+        String[] name = new String[size];
+        for(int i=0;i<size;i++){
+            name[i]=sc.next();
+        }
+        System.out.println("enter their respective employee's salary   ");
+        int[] sal = new int[size];
+        for(int i=0;i<size;i++){
+            sal[i]=sc.nextInt();
+        }
+        System.out.println("entered details of the emplyee is  ");
+        for(int i=0;i<size;i++){
+            System.out.println(name[i]+" = "+sal[i]);
+        }
+        bonus obc=new bonus();
+        System.out.println("do u want to give bonus to the employees? yes ; y or no: n    ");
+        char chr=sc.next().charAt(0);
+        while(chr=='y'||chr=='Y'){
+            obc.bon(name,sal);
+            break;
+        }
+        sc.close();
+        
+    
+    }
+}
